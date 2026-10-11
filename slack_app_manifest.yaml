@@ -1,0 +1,22 @@
+# api.slack.com/apps → Create New App → From a manifest → pick your workspace → paste this → Install.
+# Copy "User OAuth Token" (xoxp-…) into .env as SLACK_USER_TOKEN. Read-only; it sees exactly what you see.
+display_information:
+  name: CS Copilot
+  description: Reads your DMs and channels so CS Copilot can prioritise them. Read-only.
+oauth_config:
+  scopes:
+    user:
+      - im:history         # 1:1 DMs
+      - im:read
+      - mpim:history       # group DMs
+      - mpim:read
+      - channels:history   # public channels you're in (incl. Slack Connect)
+      - channels:read
+      - groups:history     # private channels you're in
+      - groups:read
+      - users:read         # names
+      - users:read.email   # email → match the customer account in Fixture
+settings:
+  org_deploy_enabled: false
+  socket_mode_enabled: false
+  token_rotation_enabled: false

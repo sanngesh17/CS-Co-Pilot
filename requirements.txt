@@ -1,0 +1,7 @@
+streamlit>=1.50
+openai>=2.0
+slack_sdk>=3.30
+google-api-python-client>=2.120
+google-auth-oauthlib>=1.2
+python-dotenv>=1.0
+requests>=2.32

@@ -1,0 +1,7 @@
+.env
+.secrets/
+.venv/
+.tmp/
+data/.score_cache.json
+data/.done.json
+__pycache__/

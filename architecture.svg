@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 540" role="img" aria-labelledby="ad-title ad-desc" font-family="system-ui,-apple-system,'Segoe UI',Roboto,sans-serif">
+  <title id="ad-title">CS Copilot architecture</title>
+  <desc id="ad-desc">Gmail and Slack DMs are fetched, matched to a Fixture account, scored by OpenAI from content plus account context, sorted, and shown in a Streamlit inbox where the CSM replies manually.</desc>
+  <style>
+    .ad-bg{fill:#f6f5f2}.ad-ink{fill:#1c1c21}.ad-mut{fill:#6c6b74}
+    .ad-box{fill:#ffffff;stroke:#d9d5cc;stroke-width:1.2}
+    .ad-crm{fill:#f1ecf9;stroke:#8a5cc2;stroke-width:1.2}
+    .ad-wrap{fill:#eef4f0;stroke:#2f6b4f;stroke-width:1.4;stroke-dasharray:6 5}
+    .ad-step{fill:#ffffff;stroke:#2f6b4f;stroke-width:1.2}
+    .ad-ai{fill:#eaf1fb;stroke:#3b6fb6;stroke-width:1.3}
+    .ad-out{fill:#2f6b4f}.ad-outink{fill:#ffffff}
+    .ad-later{fill:none;stroke:#9a99a3;stroke-width:1.2;stroke-dasharray:5 4}
+    .ad-arrow{stroke:#4b4a52;stroke-width:1.5;fill:none}
+    .ad-dash{stroke:#8a8a94;stroke-width:1.4;fill:none;stroke-dasharray:5 4}
+    .ad-head{fill:#4b4a52}.ad-headm{fill:#8a8a94}
+    .ad-h{font-size:13px;font-weight:650}.ad-s{font-size:11.5px}.ad-cap{font-size:11px;font-weight:700;letter-spacing:.08em}
+    @media (prefers-color-scheme:dark){
+      .ad-bg{fill:#121215}.ad-ink{fill:#ececf1}.ad-mut{fill:#9d9ca8}
+      .ad-box{fill:#1d1d23;stroke:#34343d}.ad-crm{fill:#241d33;stroke:#a882dd}
+      .ad-wrap{fill:#16211b;stroke:#6fcf9f}.ad-step{fill:#1d1d23;stroke:#6fcf9f}
+      .ad-ai{fill:#1b2536;stroke:#7aa7ea}
+      .ad-out{fill:#6fcf9f}.ad-outink{fill:#0f1a14}
+      .ad-arrow{stroke:#b4b3bd}.ad-head{fill:#b4b3bd}
+    }
+  </style>
+  <defs>
+    <marker id="ad-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="ad-head"/></marker>
+    <marker id="ad-m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="ad-headm"/></marker>
+  </defs>
+
+  <rect class="ad-bg" x="0" y="0" width="1120" height="540" rx="14"/>
+  <text class="ad-ink" x="30" y="34" font-size="18" font-weight="700">CS Copilot: architecture</text>
+  <text class="ad-mut ad-s" x="30" y="52">Gmail, Slack DMs and channels, prioritised by OpenAI using message content and Fixture CRM data. Read-only.</text>
+
+  <text class="ad-mut ad-cap" x="30" y="80">1 · SOURCES</text>
+  <text class="ad-mut ad-cap" x="310" y="80">2 · PIPELINE (cscopilot/)</text>
+  <text class="ad-mut ad-cap" x="850" y="80">3 · STREAMLIT UI (app.py)</text>
+
+  <!-- sources -->
+  <rect class="ad-box" x="30" y="96" width="220" height="56" rx="9"/>
+  <text class="ad-ink ad-h" x="44" y="119">Gmail</text>
+  <text class="ad-mut ad-s" x="44" y="138">inbox · read-only</text>
+
+  <rect class="ad-box" x="30" y="168" width="220" height="56" rx="9"/>
+  <text class="ad-ink ad-h" x="44" y="191">Slack DMs &amp; group DMs</text>
+  <text class="ad-mut ad-s" x="44" y="210">incl. Slack Connect · read-only</text>
+
+  <rect class="ad-box" x="30" y="240" width="220" height="56" rx="9"/>
+  <text class="ad-ink ad-h" x="44" y="263">Slack channels</text>
+  <text class="ad-mut ad-s" x="44" y="282">threads + new posts · read-only</text>
+
+  <rect class="ad-crm" x="30" y="340" width="220" height="92" rx="9"/>
+  <text class="ad-ink ad-h" x="44" y="363">Fixture CRM</text>
+  <text class="ad-mut ad-s" x="44" y="382">contacts · ARR · renewal · health · deals</text>
+  <text class="ad-mut ad-s" x="44" y="399">tickets · commitments · usage · contract</text>
+  <text class="ad-mut ad-s" x="44" y="418">local file until API access</text>
+
+  <!-- pipeline -->
+  <rect class="ad-wrap" x="310" y="88" width="480" height="374" rx="14"/>
+
+  <rect class="ad-step" x="330" y="100" width="440" height="56" rx="9"/>
+  <text class="ad-ink ad-h" x="346" y="123">1 · Fetch new messages since you left</text>
+  <text class="ad-mut ad-s" x="346" y="142">emails, DMs and channel threads where the last word isn't yours</text>
+
+  <rect class="ad-step" x="330" y="176" width="440" height="56" rx="9"/>
+  <text class="ad-ink ad-h" x="346" y="199">2 · Match the customer account</text>
+  <text class="ad-mut ad-s" x="346" y="218">contact email, company domain, channel name or account named in text</text>
+
+  <rect class="ad-ai" x="330" y="252" width="440" height="120" rx="9"/>
+  <text class="ad-ink ad-h" x="346" y="275">3 · Prioritise + draft with OpenAI · one call per conversation</text>
+  <text class="ad-mut ad-s" x="346" y="295">content decides the priority; account context can raise it</text>
+  <text class="ad-mut ad-s" x="346" y="314">reply drafted from CRM: contact, deal, tickets, commitments</text>
+  <text class="ad-mut ad-s" x="346" y="333">returns priority · summary · why · suggested reply</text>
+  <text class="ad-mut ad-s" x="346" y="352">cached, so each conversation is sent to OpenAI only once</text>
+
+  <rect class="ad-step" x="330" y="392" width="440" height="56" rx="9"/>
+  <text class="ad-ink ad-h" x="346" y="415">4 · Sort &amp; group</text>
+  <text class="ad-mut ad-s" x="346" y="434">High · Medium · Low priority</text>
+
+  <path class="ad-arrow" d="M550 156 V172" marker-end="url(#ad-a)"/>
+  <path class="ad-arrow" d="M550 232 V248" marker-end="url(#ad-a)"/>
+  <path class="ad-arrow" d="M550 372 V388" marker-end="url(#ad-a)"/>
+
+  <!-- source arrows -->
+  <path class="ad-arrow" d="M250 124 L326 122" marker-end="url(#ad-a)"/>
+  <path class="ad-arrow" d="M250 196 L326 138" marker-end="url(#ad-a)"/>
+  <path class="ad-arrow" d="M250 268 L326 146" marker-end="url(#ad-a)"/>
+  <path class="ad-arrow" d="M250 376 L326 214" marker-end="url(#ad-a)"/>
+  <path class="ad-arrow" d="M250 410 L326 320" marker-end="url(#ad-a)"/>
+
+  <!-- outputs -->
+  <rect class="ad-out" x="850" y="96" width="240" height="170" rx="10"/>
+  <text class="ad-outink ad-h" x="866" y="120">Inbox, ranked</text>
+  <text class="ad-outink ad-s" x="866" y="138" opacity=".85">streamlit run app.py</text>
+  <text class="ad-outink ad-s" x="866" y="164">• High priority first</text>
+  <text class="ad-outink ad-s" x="866" y="184">• Reason for each priority</text>
+  <text class="ad-outink ad-s" x="866" y="204">• Conversation + suggested reply</text>
+  <text class="ad-outink ad-s" x="866" y="224">• Accounts tab (full CRM record)</text>
+  <text class="ad-outink ad-s" x="866" y="244">• Done / hide done</text>
+
+  <rect class="ad-box" x="850" y="286" width="240" height="58" rx="9"/>
+  <text class="ad-ink ad-h" x="866" y="309">You reply in Gmail / Slack</text>
+  <text class="ad-mut ad-s" x="866" y="328">nothing is sent automatically</text>
+
+  <rect class="ad-later" x="850" y="364" width="240" height="82" rx="9"/>
+  <text class="ad-mut ad-h" x="866" y="386">Next</text>
+  <text class="ad-mut ad-s" x="866" y="405">connect Gmail · Fixture API</text>
+  <text class="ad-mut ad-s" x="866" y="423">send after approval · morning digest</text>
+
+  <path class="ad-arrow" d="M770 420 L846 232" marker-end="url(#ad-a)"/>
+  <path class="ad-arrow" d="M970 266 V282" marker-end="url(#ad-a)"/>
+
+  <!-- legend -->
+  <path class="ad-arrow" d="M30 494 H62" marker-end="url(#ad-a)"/><text class="ad-mut ad-s" x="70" y="498">data flow</text>
+  <path class="ad-dash" d="M150 494 H182" marker-end="url(#ad-m)"/><text class="ad-mut ad-s" x="190" y="498">later</text>
+  <rect class="ad-crm" x="290" y="486" width="16" height="14" rx="3"/><text class="ad-mut ad-s" x="312" y="498">CRM context</text>
+  <rect class="ad-ai" x="410" y="486" width="16" height="14" rx="3"/><text class="ad-mut ad-s" x="432" y="498">AI call (OpenAI)</text>
+</svg>

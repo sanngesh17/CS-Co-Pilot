@@ -1,0 +1,130 @@
+[
+  {
+    "name": "Microsoft",
+    "domains": ["microsoft.com"],
+    "segment": "Enterprise technology (Financial Services compliance programme)",
+    "plan": "Enterprise",
+    "arr_gbp": 250000,
+    "contract_start": "2025-07-01",
+    "renewal_date": "2027-06-30",
+    "health": "good",
+    "health_reason": "High adoption, but procurement is comparing a cheaper change-feed vendor for the expansion.",
+    "stage": "Expansion deal in progress",
+    "team": {"csm": "Sanngesh", "ae": "Priya (Account Executive)", "se": "Dev (Solutions Engineer)"},
+    "contacts": [
+      {"name": "Daniel Brooks", "role": "Senior Programme Manager, FS Compliance (day-to-day contact)",
+       "email": "sanngesh17@gmail.com", "notes": "Prefers short, direct updates with dates. Owns the expansion business case."},
+      {"name": "Laura Chen", "role": "Director of Procurement", "email": "laura.chen@microsoft.com",
+       "notes": "Running the vendor comparison. Pricing questions go to Priya."},
+      {"name": "Omar Haddad", "role": "Security & Risk Lead", "email": "omar.haddad@microsoft.com",
+       "notes": "Needs the security questionnaire before sign-off."}
+    ],
+    "contract": {
+      "sla_first_response": "4 business hours",
+      "entitlements": ["SSO + SCIM", "Dedicated CSM", "Quarterly business reviews", "99.9% uptime SLA", "EU data residency"],
+      "pricing_rule": "Never quote prices or discounts in writing. Pricing and commercial terms go through Priya (AE)."
+    },
+    "usage": {
+      "seats_active": 340, "seats_total": 400, "adoption_pct": 85,
+      "obligations_mapped": 1240, "controls_linked": 3180,
+      "top_features": ["Regulatory change feed", "Obligation-to-control mapping", "Audit trail export"],
+      "last_qbr": "2026-09-18"
+    },
+    "deals": [
+      {"name": "EMEA FS rollout: 3 additional entities", "stage": "Proposal sent", "amount_gbp": 120000,
+       "close_date": "2026-11-14", "next_step": "Security review sign-off, then procurement approval", "owner": "Priya"}
+    ],
+    "tickets": [
+      {"id": "CS-221", "title": "Change feed delay on EU AI Act updates (up to 6h)", "status": "In progress",
+       "priority": "High", "eta": "Fix in code review; no confirmed release date yet"},
+      {"id": "CS-215", "title": "Audit trail export timeout on large workspaces", "status": "Resolved", "priority": "Medium",
+       "eta": "Released 2026-10-02"}
+    ],
+    "commitments": [
+      {"what": "Send completed security questionnaire (CAIQ) to Omar", "owner": "Sanngesh", "due": "2026-10-15", "status": "Open"},
+      {"what": "Share draft EMEA rollout plan with Daniel", "owner": "Sanngesh", "due": "2026-10-17", "status": "Open"}
+    ],
+    "recent_activity": [
+      {"date": "2026-10-08", "type": "Call", "summary": "Reviewed expansion proposal with Daniel; he asked for security docs and a rollout plan."},
+      {"date": "2026-10-02", "type": "Email", "summary": "Told Daniel the audit export timeout fix (CS-215) was released."},
+      {"date": "2026-09-18", "type": "QBR", "summary": "85% adoption, 1,240 obligations mapped; agreed EMEA expansion scope."}
+    ],
+    "risks": ["Procurement comparing a cheaper change-feed vendor for the expansion."],
+    "talking_points": [
+      "Change feed is linked to obligation-to-control mapping with a full audit trail, which a standalone feed doesn't give them.",
+      "85% seat adoption and 1,240 obligations already mapped; switching means re-mapping.",
+      "EU data residency and 99.9% uptime SLA are in their current contract."
+    ],
+    "notes": ""
+  },
+  {
+    "name": "Brightwater Payments",
+    "domains": ["brightwater.example"],
+    "segment": "E-money institution",
+    "plan": "Growth",
+    "arr_gbp": 96000,
+    "contract_start": "2024-11-21",
+    "renewal_date": "2026-11-20",
+    "health": "watch",
+    "health_reason": "Export bug blocked their board report; COO questioning ROI before renewal.",
+    "stage": "Renewal in progress",
+    "team": {"csm": "Sanngesh", "ae": "Priya (Account Executive)", "se": "Dev (Solutions Engineer)"},
+    "contacts": [
+      {"name": "Hannah Okafor", "role": "Head of Compliance (champion)", "email": "hannah.okafor@brightwater.example",
+       "notes": "Supportive; needs practical steps her analyst can follow."},
+      {"name": "Marcus Lee", "role": "COO (exec sponsor)", "email": "marcus.lee@brightwater.example",
+       "notes": "Wants ROI evidence before signing the renewal."},
+      {"name": "Ravi Shah", "role": "IT Lead", "email": "ravi.shah@brightwater.example", "notes": ""}
+    ],
+    "contract": {
+      "sla_first_response": "1 business day",
+      "entitlements": ["SSO", "Email support"],
+      "pricing_rule": "Pricing goes through Priya (AE)."
+    },
+    "usage": {"seats_active": 18, "seats_total": 25, "adoption_pct": 72, "obligations_mapped": 430,
+              "top_features": ["Obligations export", "Regulatory change feed"], "last_qbr": "2026-08-12"},
+    "deals": [{"name": "FY27 renewal", "stage": "Negotiation", "amount_gbp": 96000, "close_date": "2026-11-20",
+               "next_step": "Send ROI summary to Marcus", "owner": "Priya"}],
+    "tickets": [{"id": "CS-230", "title": "Obligations export drops mapped controls", "status": "In progress",
+                 "priority": "High", "eta": "Workaround available (export per jurisdiction); fix in QA"}],
+    "commitments": [{"what": "Send ROI summary to Marcus", "owner": "Sanngesh + Priya", "due": "2026-10-31", "status": "Open"}],
+    "recent_activity": [{"date": "2026-10-10", "type": "Call", "summary": "Weekly sync: export bug, SCIM question, renewal concerns."}],
+    "risks": ["COO considering a cheaper vendor; two slow support responses this quarter."],
+    "talking_points": ["430 obligations mapped in under a year.", "Export workaround returns every control."],
+    "notes": ""
+  },
+  {
+    "name": "Vela Bank", "domains": ["velabank.example"], "segment": "Digital bank", "plan": "Enterprise",
+    "arr_gbp": 180000, "renewal_date": "2026-11-15", "health": "watch", "stage": "Renewal in progress",
+    "health_reason": "Adoption flat last quarter; asking how much of DORA we cover.",
+    "contacts": [{"name": "Amara Cole", "role": "Head of Regulatory Change", "email": "amara.cole@velabank.example"}],
+    "contract": {"sla_first_response": "4 business hours", "pricing_rule": "Pricing goes through Priya (AE)."},
+    "usage": {"seats_active": 41, "seats_total": 60, "adoption_pct": 68},
+    "tickets": [], "commitments": [{"what": "Send updated DORA obligations mapping", "owner": "Sanngesh", "due": "2026-10-12", "status": "Open"}],
+    "notes": ""
+  },
+  {
+    "name": "Kestrel Wealth", "domains": ["kestrelwealth.example"], "segment": "Wealth manager", "plan": "Growth",
+    "arr_gbp": 72000, "renewal_date": "2027-03-31", "health": "good", "stage": "Active",
+    "contacts": [{"name": "Sofia Marin", "role": "Compliance Lead", "email": "sofia.marin@kestrelwealth.example"}],
+    "deals": [{"name": "Second entity onboarding", "stage": "Discovery", "amount_gbp": 30000, "close_date": "2027-01-31",
+               "next_step": "Expansion proposal Thursday", "owner": "Priya"}],
+    "tickets": [], "notes": ""
+  },
+  {
+    "name": "Orbitpay", "domains": ["orbitpay.example"], "segment": "Payments institution", "plan": "Starter",
+    "arr_gbp": 54000, "renewal_date": "2027-06-30", "health": "at_risk", "stage": "Active",
+    "health_reason": "Two P1 bugs this quarter.",
+    "contacts": [{"name": "Nadia Ibrahim", "role": "DPO", "email": "nadia.ibrahim@orbitpay.example"},
+                 {"name": "Leo Grant", "role": "Compliance Analyst", "email": "leo.grant@orbitpay.example"}],
+    "tickets": [{"id": "CS-198", "title": "PSD3 draft PDF fails to ingest", "status": "Resolved", "priority": "High",
+                 "eta": "Released today"}],
+    "notes": ""
+  },
+  {
+    "name": "Lumen Crypto", "domains": ["lumencrypto.example"], "segment": "Crypto exchange", "plan": "Starter",
+    "arr_gbp": 38000, "renewal_date": "2027-01-31", "health": "good", "stage": "Active",
+    "contacts": [{"name": "Elena Novak", "role": "MLRO", "email": "elena.novak@lumencrypto.example"}],
+    "tickets": [], "notes": "Planning MiCA roadmap for next quarter."
+  }
+]

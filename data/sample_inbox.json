@@ -1,0 +1,52 @@
+[
+  {"id": "s-email-1", "source": "gmail", "from_name": "Marcus Lee", "from_email": "marcus.lee@brightwater.example",
+   "subject": "Renewal - before we sign", "minutes_ago": 410,
+   "thread": [{"from": "Marcus Lee", "text": "Hi Sanngesh,\n\nI want to be clear about where we are. Our last two support requests took over a week to get a response, and another vendor has offered us a regulatory change feed at a lower price. Before I take the renewal to our board, I need the ROI summary we discussed and a clear view of what changes on support. Can we put 30 minutes in the diary this week?\n\nMarcus"}]},
+
+  {"id": "s-email-2", "source": "gmail", "from_name": "Nadia Ibrahim", "from_email": "nadia.ibrahim@orbitpay.example",
+   "subject": "URGENT - possible unauthorised export", "minutes_ago": 55,
+   "thread": [{"from": "Nadia Ibrahim", "text": "Hi Sanngesh,\n\nWe think a former contractor may have exported our policy library after their access should have been revoked. I need the audit log of exports for the last 30 days as soon as possible, ideally today. Who should we work with on your side?\n\nNadia"}]},
+
+  {"id": "s-email-3", "source": "gmail", "from_name": "Hannah Okafor", "from_email": "hannah.okafor@brightwater.example",
+   "subject": "Re: weekly sync - workaround steps?", "minutes_ago": 300,
+   "thread": [{"from": "Hannah Okafor", "text": "Thanks for Friday. Could you send the export workaround steps in writing? My analyst wants to start on the board report first thing Monday."}]},
+
+  {"id": "s-email-4", "source": "gmail", "from_name": "Procurement Team", "from_email": "procurement@velabank.example",
+   "subject": "Renewal paperwork - usage summary", "minutes_ago": 220,
+   "thread": [{"from": "Procurement Team", "text": "Hello,\n\nWe're starting the renewal paperwork for Cardamon. Could you send a usage summary for the last 12 months by next Friday?\n\nThanks,\nVela Bank Procurement"}]},
+
+  {"id": "s-email-5", "source": "gmail", "from_name": "RegTech Weekly", "from_email": "newsletter@regtechweekly.example",
+   "subject": "This week in RegTech: 10 trends you can't miss", "minutes_ago": 480, "automated": true,
+   "thread": [{"from": "RegTech Weekly", "text": "AI in compliance, the state of MiCA, and our top 10 webinars. Click here to read more. Unsubscribe."}]},
+
+  {"id": "s-email-6", "source": "gmail", "from_name": "Elena Novak", "from_email": "elena.novak@lumencrypto.example",
+   "subject": "MiCA coverage question", "minutes_ago": 150,
+   "thread": [{"from": "Elena Novak", "text": "Hi Sanngesh, no rush on this - does Cardamon cover the MiCA Title III asset-referenced token obligations? We're planning next quarter's roadmap."}]},
+
+  {"id": "s-dm-1", "source": "slack_dm", "from_name": "Ravi Shah", "from_email": "ravi.shah@brightwater.example",
+   "where": "DM (Slack Connect)", "minutes_ago": 40,
+   "thread": [{"from": "Ravi Shah", "text": "Do you support Okta SCIM provisioning? We want to onboard 15 more users."},
+              {"from": "Sanngesh", "text": "Good question - let me check with engineering and come back to you by Monday."},
+              {"from": "Ravi Shah", "text": "Hi, any update on SCIM? We'd like to start provisioning tomorrow."}]},
+
+  {"id": "s-dm-2", "source": "slack_dm", "from_name": "Jamie", "from_email": "jamie@cardamon.ai",
+   "where": "DM", "minutes_ago": 95,
+   "thread": [{"from": "Jamie", "text": "Heads up - Vela Bank pinged while you were out and I told them you'd send the updated DORA obligations mapping by end of day today. Sorry to commit you! Draft is in the shared drive."}]},
+
+  {"id": "s-dm-3", "source": "slack_dm", "from_name": "Priya", "from_email": "priya@cardamon.ai",
+   "where": "DM", "minutes_ago": 130,
+   "thread": [{"from": "Priya", "text": "Can you pull adoption numbers for Kestrel Wealth (active users, obligations mapped)? Prepping their expansion proposal for Thursday."}]},
+
+  {"id": "s-dm-4", "source": "slack_dm", "from_name": "Tom", "from_email": "tom@cardamon.ai",
+   "where": "DM", "minutes_ago": 70,
+   "thread": [{"from": "Tom", "text": "lunch Monday? new ramen place 🍜"}]},
+
+  {"id": "s-gdm-1", "source": "slack_group_dm", "from_name": "Dev", "from_email": "dev@cardamon.ai",
+   "where": "Group DM: Dev, Aisha, you", "minutes_ago": 25,
+   "thread": [{"from": "Dev", "text": "The PSD3 ingestion fix for Orbitpay passed QA and is live in prod."},
+              {"from": "Aisha", "text": "Nice. Sanngesh, can you let Orbitpay know? They've been waiting two weeks."}]},
+
+  {"id": "s-dm-5", "source": "slack_dm", "from_name": "Sofia Marin", "from_email": "sofia.marin@kestrelwealth.example",
+   "where": "DM (Slack Connect)", "minutes_ago": 200,
+   "thread": [{"from": "Sofia Marin", "text": "Thanks for the training session yesterday - the team found it really useful!"}]}
+]
