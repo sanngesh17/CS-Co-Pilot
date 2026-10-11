@@ -10,6 +10,14 @@ High priority comes first, with a short summary, the reason, and a suggested rep
 Double-click **`Open CS Copilot UI.bat`** and go to http://localhost:8501.
 The **Sample data** switch shows a demo inbox if nothing is connected.
 
+## Deploy (Streamlit Community Cloud)
+1. share.streamlit.io → sign in with GitHub → **Create app** → repo `sanngesh17/CS-Co-Pilot`, branch `main`, file `app.py`.
+2. **Advanced settings → Secrets**: paste `.streamlit/secrets.toml.example` with real values. Always set `APP_PASSWORD`,
+   because the app shows private DMs and customer data.
+3. Deploy. Every push to `main` redeploys automatically.
+
+Gmail's sign-in flow only works when the app runs on your own computer, so the deployed app covers Slack for now.
+
 ## Connect (`.env`)
 | What | How |
 |---|---|

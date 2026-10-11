@@ -1,6 +1,10 @@
-"""Paths, .env loading and connection status."""
+"""Paths, settings and connection status.
+
+Keys come from .env locally, or from Streamlit secrets when deployed (Streamlit Community Cloud → App settings → Secrets).
+"""
 import os
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 from dotenv import load_dotenv
 
@@ -11,6 +15,16 @@ DATA = ROOT / "data"
 SECRETS = ROOT / ".secrets"
 
 load_dotenv(ROOT / ".env")
+try:                                    # deployed: copy Streamlit secrets into the environment
+    import streamlit as st
+
+    for _k, _v in st.secrets.items():
+        if isinstance(_v, (str, int, float)):
+            os.environ.setdefault(_k, str(_v))
+except Exception:                       # no secrets file locally - that's fine
+    pass
+
+LOCAL_TZ = ZoneInfo(os.getenv("APP_TIMEZONE", "Europe/London"))
 
 
 def settings() -> Settings:

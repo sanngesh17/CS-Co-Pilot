@@ -4,7 +4,9 @@ Gmail + Slack DMs (personal messages first; channels later), scored by OpenAI fr
 customer's account details in Fixture, highest first.
 Run: double-click "Open CS Copilot UI.bat", or `streamlit run app.py`.
 """
+import hmac
 import json
+import os
 from datetime import datetime, timedelta
 
 import streamlit as st
@@ -14,6 +16,19 @@ from cscopilot.fixture import days_to_renewal, find_contact, llm_context, open_t
 from cscopilot.inbox import build_inbox
 
 st.set_page_config(page_title="CS Copilot", page_icon="📥", layout="wide")
+
+# Password gate: set APP_PASSWORD in .env / Streamlit secrets. Required when deployed, because the inbox shows
+# private DMs and customer data.
+_password = os.getenv("APP_PASSWORD")
+if _password and not st.session_state.get("authed"):
+    st.title("CS Copilot")
+    entered = st.text_input("Password", type="password")
+    if entered and hmac.compare_digest(entered, _password):
+        st.session_state.authed = True
+        st.rerun()
+    elif entered:
+        st.error("Wrong password.")
+    st.stop()
 
 DONE_FILE = config.DATA / ".done.json"
 PRIORITY = {"high": ("High", "red"), "medium": ("Medium", "orange"), "low": ("Low", "gray")}
@@ -35,7 +50,7 @@ def save_done(done: set):
 
 
 def away_start(choice: str) -> datetime:
-    now = datetime.now().astimezone()
+    now = datetime.now(config.LOCAL_TZ)
     if choice == "Since yesterday 6 pm":
         return (now - timedelta(days=1)).replace(hour=18, minute=0, second=0, microsecond=0)
     hours = {"Last 4 hours": 4, "Last 8 hours": 8, "Last 24 hours": 24, "Last 3 days": 72, "Last 7 days": 168}[choice]
@@ -127,8 +142,10 @@ with tab_inbox:
     items = inbox["items"]
     open_items = [i for i in items if i.id not in done]
     n = len(items)
-    st.caption(f"{n} conversation{'s' if n != 1 else ''} since {inbox['since'].strftime('%a %H:%M')} · "
-               f"{' + '.join(inbox['sources']) or 'no sources'} · updated {inbox['fetched_at'].strftime('%H:%M')}")
+    since_local = inbox["since"].astimezone(config.LOCAL_TZ).strftime("%a %H:%M")
+    updated_local = inbox["fetched_at"].astimezone(config.LOCAL_TZ).strftime("%H:%M")
+    st.caption(f"{n} conversation{'s' if n != 1 else ''} since {since_local} · "
+               f"{' + '.join(inbox['sources']) or 'no sources'} · updated {updated_local}")
     if not inbox["sources"]:
         st.warning("No sources connected. Add your Slack token or Gmail file to .env (see README).")
     for note in inbox["notes"]:
